@@ -1,0 +1,17 @@
+{
+  "drawitemget.ui.title": "Draw = Items",
+  "drawitemget.ui.subtitle": "Нарисуй что-нибудь — ИИ выдаст тебе этот предмет.",
+  "drawitemget.ui.tools": "Инструменты",
+  "drawitemget.ui.palette": "Палитра",
+  "drawitemget.ui.brush": "Кисть",
+  "drawitemget.ui.current": "Цвет",
+  "drawitemget.ui.submit": "◆  Отправить на проверку  ◆",
+  "drawitemget.ui.hint_close": "Esc — закрыть,  Ctrl+Z / Ctrl+Y — отмена/повтор",
+  "drawitemget.ui.tool.brush": "Кисть",
+  "drawitemget.ui.tool.eraser": "Ластик",
+  "drawitemget.ui.tool.bucket": "Заливка",
+  "drawitemget.ui.tool.picker": "Пипетка",
+  "drawitemget.ui.toast.heading": "✎ Распознано!",
+  "drawitemget.ui.toast.confidence": "уверенность",
+  "drawitemget.msg.recognized": "рисунок похож на"
+}

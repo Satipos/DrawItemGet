@@ -1,0 +1,17 @@
+{
+  "drawitemget.ui.title": "Draw = Items",
+  "drawitemget.ui.subtitle": "Sketch something — the AI will give you whatever you drew.",
+  "drawitemget.ui.tools": "Tools",
+  "drawitemget.ui.palette": "Palette",
+  "drawitemget.ui.brush": "Brush",
+  "drawitemget.ui.current": "Color",
+  "drawitemget.ui.submit": "◆  Submit for review  ◆",
+  "drawitemget.ui.hint_close": "Esc — close,  Ctrl+Z / Ctrl+Y — undo/redo",
+  "drawitemget.ui.tool.brush": "Brush",
+  "drawitemget.ui.tool.eraser": "Eraser",
+  "drawitemget.ui.tool.bucket": "Fill",
+  "drawitemget.ui.tool.picker": "Pick color",
+  "drawitemget.ui.toast.heading": "✎ Recognized!",
+  "drawitemget.ui.toast.confidence": "confidence",
+  "drawitemget.msg.recognized": "the drawing looks like"
+}

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "drawitemget",
+  "version": "${version}",
+  "name": "Draw = Items",
+  "description": "Draw on a canvas and get the item you drew — simple recognition turns pixel art into loot.",
+  "authors": ["Satipos"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.drawitemget.DrawItemGetMod"
+    ],
+    "client": [
+      "com.drawitemget.client.DrawItemGetClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.2",
+    "fabric-api": "*",
+    "minecraft": ">=26.1.2",
+    "java": ">=25"
+  }
+}
