@@ -236,14 +236,36 @@ public final class Classifier {
             }
         }
 
-        if (bestItem == null) {
-            // Extreme fallback — dye based on average color.
-            Identifier dyeId = dyeForBucket(f.dominantBucket());
-            Item dye = BuiltInRegistries.ITEM.getValue(dyeId);
-            if (dye == Items.AIR) dye = Items.WHITE_DYE;
-            return new Result(dye, dyeId.toString(), 0.2f);
+        // High-confidence specific-item rule wins outright.
+        if (bestItem != null && bestScore >= 0.7f) {
+            return new Result(bestItem, bestId, bestScore);
         }
-        return new Result(bestItem, bestId, bestScore);
+
+        // Otherwise try the wide block-by-color index (covers ~600+ blocks).
+        BlockColorIndex.Match blockMatch = BlockColorIndex.findClosest(f.avgR(), f.avgG(), f.avgB());
+        if (blockMatch != null && blockMatch.entry() != null) {
+            int dist = blockMatch.distance();
+            // 0  px → 0.95 confidence; 80 px → 0.55; >120 px → fall through.
+            if (dist <= 120) {
+                float conf = 0.95f - (dist / 200.0f);
+                if (conf < 0.5f) conf = 0.5f;
+                if (bestItem == null || conf > bestScore) {
+                    BlockColorIndex.Entry e = blockMatch.entry();
+                    return new Result(e.item(), e.id(), conf);
+                }
+            }
+        }
+
+        // Specific rule with sub-threshold score wins over no match at all.
+        if (bestItem != null) {
+            return new Result(bestItem, bestId, bestScore);
+        }
+
+        // Extreme fallback — dye based on average color.
+        Identifier dyeId = dyeForBucket(f.dominantBucket());
+        Item dye = BuiltInRegistries.ITEM.getValue(dyeId);
+        if (dye == Items.AIR) dye = Items.WHITE_DYE;
+        return new Result(dye, dyeId.toString(), 0.2f);
     }
 
     private static Identifier dyeForBucket(String bucket) {
